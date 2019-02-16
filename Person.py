@@ -4,8 +4,8 @@ class Person:
     #Fields---------------------------------------------------------------
 
     #False for disturb-able, and True for do not disturb mode on
-    doNotDisturb = False
-    outOfTown = False
+    #doNotDisturb = False
+    #outOfTown = False
 
     #Dictionary keeping record of all balances the person owes or has
     #Each balance is a dictionary itself with the following keys:
@@ -13,17 +13,18 @@ class Person:
     #Debtor: (Person) object
     #Amount: positive integer
     #Date: datetime(?) object
-    balances = []
+    #balances = []
 
     #Dictionary keeping record of all tasks the person has ever had
     #Each task is a dictionary itself with the following keys:
     #Name: string
     #Date: datetime(?) object
     #Assignee: (Person) object
-    tasks = []
+    #tasks = []
 
 
     def __init__(self, name):
+        readFromDataBase()
         self.name = name
         self.score = 600
         self.tasks = []
@@ -31,7 +32,15 @@ class Person:
         self.doNotDisturb = False
         self.outOfTown = False
 
-    def getName():
+    #Read from database
+    def readFromDatabase(self):
+        f = open(name + ".txt")
+        #make call to database
+        #search for user with 'self.name' variable
+        #fill in other fields
+
+
+    def getName(self):
         return self.name
 
     def addTask(self, task):

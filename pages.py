@@ -6,6 +6,7 @@ from flask import (
 import psycopg2
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from Person import Person
 
 
 bp = Blueprint('pages', __name__)
@@ -21,19 +22,20 @@ def loginFt():
 
 @bp.route('/user_soukarya')
 def userSoukarya():
-    return render_template('users/base.html', name="Soukarya")
+	a = Person("Soukarya")
+	return render_template('users/base.html', name="Soukarya", person=Person("Soukarya"))
 
 @bp.route('/user_james')
 def userJames():
-    return render_template('users/base.html', name="James")
+    return render_template('users/base.html', name="James", person=Person("James"))
 
 @bp.route('/user_austin')
 def userAustin():
-    return render_template('users/base.html', name="Austin")
+    return render_template('users/base.html', name="Austin", person=Person("Austin"))
 
 @bp.route('/user_ryan')
 def userRyan():
-    return render_template('users/base.html', name="Ryan")
+    return render_template('users/base.html', name="Ryan", person=Person("Ryan"))
 
 @bp.route('/')
 def index():
