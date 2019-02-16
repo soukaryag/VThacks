@@ -27,11 +27,15 @@
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/base.css') }}">
 
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/component.css') }}">
 
 
     <!-- script
     ================================================== -->
-
+   <script src="{{ url_for('static', filename='js/modernizr.custom.js') }}"></script>
 
     <!-- favicons
     ================================================== -->
@@ -39,21 +43,71 @@
 
     <link rel="icon" href="{{ url_for('static', filename='images/tabIcon.png') }}">
 
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+
 
 </head>
 
-<body id="top">
+<body id="top" style="background: #ff6b6b">
 
 <!-- header
 ================================================== -->
-<header>
+<center>
 
-    hello gaybois
+    <h style="color:white; font-size:40px; font-family: Ubuntu;">Welcome,</h>
 
-</header> <!-- end s-header -->
+</center> <!-- end s-header -->
 
+<center style="line-height: 400px">
 
+    <h style="color:white; font-size:170px; font-family: Ubuntu;">to Valera!</h>
 
+</center> <!-- end s-header -->
+
+<div class="container">
+  <!-- Top Navigation -->
+  <section>
+
+      <a href="/face"><button class="btn btn-1 btn-1c">Login</button></a>
+
+  </section>
+
+  <script src="{{ url_for('static', filename='js/classie.js') }}"></script>
+  <script>
+    var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
+      buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
+      totalButtons7Click = buttons7Click.length,
+      totalButtons9Click = buttons9Click.length;
+
+    buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+    buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+
+    function activate() {
+      var self = this, activatedClass = 'btn-activated';
+
+      if( classie.has( this, 'btn-7h' ) ) {
+        // if it is the first of the two btn-7h then activatedClass = 'btn-error';
+        // if it is the second then activatedClass = 'btn-success'
+        activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
+      }
+      else if( classie.has( this, 'btn-8g' ) ) {
+        // if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
+        // if it is the second then activatedClass = 'btn-error3d'
+        activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
+      }
+
+      if( !classie.has( this, activatedClass ) ) {
+        classie.add( this, activatedClass );
+        setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
+      }
+    }
+
+    document.querySelector( '.btn-7i' ).addEventListener( 'click', function() {
+      classie.add( document.querySelector( '#trash-effect' ), 'trash-effect-active' );
+    }, false );
+  </script>
+
+</div><!-- /container -->
 
 </body>
 
