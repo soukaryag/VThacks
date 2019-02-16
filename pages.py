@@ -23,19 +23,19 @@ def loginFt():
 @bp.route('/user_soukarya')
 def userSoukarya():
 	a = Person("Soukarya")
-	return render_template('users/base.html', name="Soukarya", person=Person("Soukarya"))
+	return render_template('users/base.html', name="Soukarya", person=Person("Soukarya"), file="Soukarya.mp3")
 
 @bp.route('/user_james')
 def userJames():
-    return render_template('users/base.html', name="James", person=Person("James"))
+    return render_template('users/base.html', name="James", person=Person("James"), file="James.mp3")
 
 @bp.route('/user_austin')
 def userAustin():
-    return render_template('users/base.html', name="Austin", person=Person("Austin"))
+    return render_template('users/base.html', name="Austin", person=Person("Austin"), file="Austin.mp3")
 
 @bp.route('/user_ryan')
 def userRyan():
-    return render_template('users/base.html', name="Ryan", person=Person("Ryan"))
+    return render_template('users/base.html', name="Ryan", person=Person("Ryan"), file="Ryan.mp3")
 
 @bp.route('/')
 def index():
