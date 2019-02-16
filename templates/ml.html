@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <!-- saved from url=(0207)https://ml-for-everyone.herokuapp.com/index.html?mode=predict&projectId=666dc70f-d648-4bf6-9edd-721dada18e1f&&trainingApiKey=9c2ffaf73afe46cdb5ff51572909b04b&predictionApiKey=a91a9966f2124c7295ca0bc23ec1f9fe -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machine Learning for Everyone</title>
-    
+
     <!-- JavaScript Libraries -->
-    <script type="text/javascript" src="./ml_files/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="./ml_files/notify.js"></script><style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/notify.js') }}"></script>
+    <style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
 	font-weight: bold;
 	padding: 8px 15px 8px 14px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -46,14 +48,17 @@
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
 }
 </style>
-    <script type="text/javascript" src="./ml_files/spin.js"></script>
+    <script src="{{ url_for('static', filename='js/spin.js') }}"></script>
 
     <!-- Fonts -->
-    <link href="./ml_files/roboto.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/roboto.css') }}">
 
-    <script type="text/javascript" src="./ml_files/scripts.js"></script>
-    <link href="./ml_files/styles.css" rel="stylesheet">
-    <link href="./ml_files/spin.css" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/spin.css') }}">
 <style type="text/css" id="core-notify">.notifyjs-corner {
 	position: fixed;
 	margin: 5px;
@@ -97,9 +102,9 @@
 	width: 0;
 	height: 0;
 }</style></head>
-<body>
+<body style="background: #ff6b6b">
     <div id="content">
-        <h1 id="title" class="title">Image Classifier Prediction</h1>
+        <h1 id="title" class="title"><a style="color:white; font-size:40px; font-family: Ubuntu;">Image Classifier Prediction</a></h1>
         <video autoplay="" playsinline="" id="videoElement"></video>
         <div id="controls" class="controls">
             <select id="tag-selector" class="tag-selector" style="display: none;"></select>

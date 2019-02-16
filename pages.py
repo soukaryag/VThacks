@@ -6,7 +6,6 @@ from flask import (
 import psycopg2
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from werkzeug.security import check_password_hash, generate_password_hash
 
 
 bp = Blueprint('pages', __name__)
@@ -15,6 +14,10 @@ bp = Blueprint('pages', __name__)
 @bp.route('/faq')
 def faq():
     return render_template('faq.html')
+
+@bp.route('/face')
+def login():
+    return render_template('ml.html')
 
 
 @bp.route('/')
