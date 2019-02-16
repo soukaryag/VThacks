@@ -17,7 +17,7 @@ def faq():
 
 @bp.route('/face')
 def loginFt():
-    return render_template('public/ml.html')
+    return render_template('ml.html')
 
 @bp.route('/user_soukarya')
 def userSoukarya():
