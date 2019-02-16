@@ -9,6 +9,7 @@
 
 <head>
 
+
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
@@ -136,6 +137,11 @@
 </head>
 
 <body id="top" style="background: #0abde3">
+
+
+    <audio autoplay>
+        <source src="{{ url_for('static', filename='/'.join(['audio', file])) }}" type="audio/mp3">
+     </audio>
 
 <!-- header
 ================================================== -->

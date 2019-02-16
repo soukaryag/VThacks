@@ -6,6 +6,7 @@ from flask import (
 import psycopg2
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from gtts import gTTS
 
 
 bp = Blueprint('pages', __name__)
@@ -21,19 +22,21 @@ def loginFt():
 
 @bp.route('/user_soukarya')
 def userSoukarya():
-    return render_template('users/base.html', name="Soukarya")
+    tts = gTTS(text='Hello World', lang='en')
+    tts.save("hello.mp3")
+    return render_template('users/base.html', name="Soukarya", file="Soukarya.mp3")
 
 @bp.route('/user_james')
 def userJames():
-    return render_template('users/base.html', name="James")
+    return render_template('users/base.html', name="James", file="James.mp3")
 
 @bp.route('/user_austin')
 def userAustin():
-    return render_template('users/base.html', name="Austin")
+    return render_template('users/base.html', name="Austin", file="Austin.mp3")
 
 @bp.route('/user_ryan')
 def userRyan():
-    return render_template('users/base.html', name="Ryan")
+    return render_template('users/base.html', name="Ryan", file="Ryan.mp3")
 
 @bp.route('/')
 def index():

@@ -2,11 +2,12 @@ import os
 from flask import Flask, request, redirect, session, render_template
 from datetime import timedelta
 import sys
-
+from flask_gtts import gtts
 
 # create and configure the app
 app = Flask(__name__)
 app.debug = True
+gtts(app)
 
 app.secret_key = 'ab291093f29f0e2'
 
