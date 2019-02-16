@@ -51,17 +51,9 @@ function captureButtonPressed() {
     ctx.drawImage(video, 0,0, canvas.width, canvas.height);
     const imageDataUrl = canvas.toDataURL('image/jpeg', 0.9);
 
-    if(mode == "train"){
-        submitTrainingImage(imageDataUrl);
-    }
-    else if(mode == "predict") {
-        predictFromImage(imageDataUrl);
-    }
-    else if(mode == "play") {
-        predictFromImage(imageDataUrl);
-    }
-}
+    predictFromImage(imageDataUrl);
 
+}
 
 
 //prediction function
@@ -83,17 +75,22 @@ function predictFromImage(imageDataUrl) { //supports predict and play modes
             var predictions = json.predictions;
             var toDisplay = "";
 
+            var name = (predictions[0]).tagName;
+            if(name != 'Nothing'){
+              window.location.href = "/user_" + (String(name)).toLowerCase();}
+
             if(mode == "predict") {
+
+
                 for(var i = 0; i < predictions.length; i++) {
                     const prediction = predictions[i];
+
                     if(i == 0) { //index 0 means top probability, so add *** to highlight this
-                        toDisplay += "***";
-                        $(location).attr('href', '/user_soukarya');
-                        $("#welcome").text("hi, " + str(prediction.tagName));
+                        toDisplay += "*******";
                     }
                     toDisplay += prediction.tagName + ":" + Number.parseFloat(prediction.probability).toPrecision(2);
                     if(i == 0) {
-                        toDisplay += "***";
+                        toDisplay += "*******";
                     }
 
                     toDisplay += "\n";
