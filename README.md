@@ -9,4 +9,4 @@ Virginia Tech Hackathon
   * roommate chore split
   * do not disturb requests
   * debt settlement requests
-  
+  * out of own feature
