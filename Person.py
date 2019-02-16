@@ -31,7 +31,14 @@ class Person:
         self.doNotDisturb = False
         self.outOfTown = False
 
-    def getName():
+    #Read from database
+    def readFromDataBase(self):
+        #make call to database
+        #search for user with 'self.name' variable
+        #fill in other fields
+
+
+    def getName(self):
         return self.name
 
     def addTask(self, task):
