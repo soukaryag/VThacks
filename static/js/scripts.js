@@ -18,20 +18,8 @@ function setupUIForMode(mode) {
     var spinner = new Spinner().spin(document.getElementById("loading"));
     $("#loading").hide();
 
-    if(mode == "train" && projectId && trainingApiKey) {
-        $('#tag-selector').show();
-        $("#title").text("Image Classifier Training");
+    $("#title").text("Welcome");
 
-        fetchTags();
-    }
-    else if(mode == "predict" && projectId && predictionApiKey) {
-      $('#tag-selector').show();
-      $("#welcome").text("welcome");
-    }
-    else {
-        $("#controls").hide();
-        $("#title").text("Please specify a mode param (train, predict, or play), a projectId param, and either a trainingApiKey or predictionApiKey based on the mode");
-    }
 }
 
 function flipCameraButtonPressed() {
@@ -74,71 +62,7 @@ function captureButtonPressed() {
     }
 }
 
-//training functions
-function fetchTags() {
-    $.ajax({
-        url: baseUrl + trainingUrlPart + projectId + "/tags",
-        headers: {
-            'Training-Key': trainingApiKey,
-            'Content-Type': "application/json"
-        },
-        async: true,
-        crossDomain: true,
-        method: 'GET',
-        success: function(tagsArray){
-            console.log("success, found " + tagsArray.length + " tags");
-            tags = tagsArray.sort(function(a, b) {
-                return b.name.localeCompare(a.name);
-             });
 
-            for (var i = 0; i <= tags.length - 1; i++) {
-                $('#tag-selector').append('<option value="' + tags[i].name + '">' + tags[i].name + '</option>');
-            }
-        },
-        error: function(error) {
-            $.notify(error.statusText, "error");
-        }
-    });
-}
-
-function submitTrainingImage(imageDataUrl) {
-    const selectedTagId = tags[document.getElementById('tag-selector').selectedIndex].id;
-
-    const json = {
-                    "images": [
-                        {
-                        "name": "imageSentByApi",
-                        "contents": imageDataUrl.replace("data:image/jpeg;base64,", ""),
-                        "tagIds": [selectedTagId],
-                        }
-                    ]
-                    };
-
-    $.ajax({
-        url: baseUrl + trainingUrlPart + projectId + "/images/files",
-        headers: {
-            'Training-Key':trainingApiKey,
-            'Content-Type': "application/json"
-        },
-        async: true,
-        crossDomain: true,
-        processData: false,
-        method: 'POST',
-        data: JSON.stringify(json),
-        success: function(data){
-            showLoading(false);
-
-            $.notify("Image Uploaded Successfully!", "success", {
-                autoHideDelay: 500,
-            });
-        },
-        error: function(error) {
-            showLoading(false);
-
-            $.notify(error.statusText, "error");
-        }
-    });
-}
 
 //prediction function
 function predictFromImage(imageDataUrl) { //supports predict and play modes
@@ -164,7 +88,7 @@ function predictFromImage(imageDataUrl) { //supports predict and play modes
                     const prediction = predictions[i];
                     if(i == 0) { //index 0 means top probability, so add *** to highlight this
                         toDisplay += "***";
-                        $('#tag-selector').show();
+                        $(location).attr('href', '/user_soukarya');
                         $("#welcome").text("hi, " + str(prediction.tagName));
                     }
                     toDisplay += prediction.tagName + ":" + Number.parseFloat(prediction.probability).toPrecision(2);
@@ -179,49 +103,7 @@ function predictFromImage(imageDataUrl) { //supports predict and play modes
                     autoHideDelay: 500,
                 });
             }
-            else if(mode == "play") { //will only work with rock, paper, scissors project
-                if(predictions.length != 0) {
-                    const userPrediction = predictions[0].tagName;
-                    const computerResult = rockPaperOrScissorsFromInt(Math.floor(Math.random() * 3));
 
-                    var userWon = false;
-
-                    if(userPrediction == "rock" && computerResult == "scissors") {
-                        userWon = true;
-                    }
-                    else if(userPrediction == "paper" && computerResult == "rock") {
-                        userWon = true;
-                    }
-                    else if(userPrediction == "scissors" && computerResult == "paper") {
-                        userWon = true;
-                    }
-                    else { //negative case for user prediction
-                        userWon = null;
-                    }
-
-                    var toDisplay = "";
-
-                    if(userPrediction == computerResult) {
-                        toDisplay = "It's a tie - user and computer both picked " + userPrediction;
-                    }
-                    else if(userWon) {
-                        toDisplay = "You won! " + userPrediction + " beats " + computerResult;
-                    }
-                    else if(!userWon) {
-                        toDisplay = "You lost! " + userPrediction + " loses to " + computerResult;
-                    }
-                    else { //userWon is null, this means we had negative case
-                        toDisplay = "Could not detect hand-sign, please try again";
-                    }
-
-                    $.notify("Result:\n" + toDisplay, "success", {
-                        autoHideDelay: 500,
-                    });
-                }
-                else {
-                    $.notify("Unable to determine hand-sign (no predictions)", "error");
-                }
-            }
         },
         error: function(error) {
             showLoading(false);
