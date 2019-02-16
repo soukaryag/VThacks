@@ -141,9 +141,11 @@
 
             setupUIForMode(mode);
 
-            $("#capture-button").on("click", function(event) {
-                captureButtonPressed();
+            $(document).ready(function(){
+              myVar = setInterval("captureButtonPressed()", 1000);
             });
+          
+
 
             $("#flip-camera-button").on("click", function(event) {
                 flipCameraButtonPressed();
