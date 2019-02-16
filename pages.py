@@ -19,6 +19,21 @@ def faq():
 def loginFt():
     return render_template('public/ml.html')
 
+@bp.route('/user_soukarya')
+def userSoukarya():
+    return render_template('users/base.html', name="Soukarya")
+
+@bp.route('/user_james')
+def userJames():
+    return render_template('users/base.html', name="James")
+
+@bp.route('/user_austin')
+def userAustin():
+    return render_template('users/base.html', name="Austin")
+
+@bp.route('/user_ryan')
+def userRyan():
+    return render_template('users/base.html', name="Ryan")
 
 @bp.route('/')
 def index():
