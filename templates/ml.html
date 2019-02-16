@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machine Learning for Everyone</title>
 
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/component.css') }}">
+
+
+
     <!-- JavaScript Libraries -->
+   <script src="{{ url_for('static', filename='js/modernizr.custom.js') }}"></script>
+
     <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
 
     <script src="{{ url_for('static', filename='js/notify.js') }}"></script>
@@ -59,6 +72,8 @@
           href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/spin.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
 <style type="text/css" id="core-notify">.notifyjs-corner {
 	position: fixed;
 	margin: 5px;
@@ -104,15 +119,15 @@
 }</style></head>
 <body style="background: #ff6b6b">
     <div id="content">
-        <h1 id="title" class="title"><a style="color:white; font-size:40px; font-family: Ubuntu;">Image Classifier Prediction</a></h1>
+        <h1 id="welcome" class="title" style="color:white; font-size:40px; font-family: Ubuntu; padding:1rem"></h1>
         <video autoplay="" playsinline="" id="videoElement"></video>
         <div id="controls" class="controls">
             <select id="tag-selector" class="tag-selector" style="display: none;"></select>
             <div class="bottom-left-corner">
                 <button id="flip-camera-button" class="button flip-button" style="display: none;">Flip Camera</button>
             </div>
-            <div class="bottom-right-corner">
-                <button id="capture-button" class="button capture-button">Capture</button>
+            <div>
+                <button id="capture-button" class="btn btn-1 btn-1f">Capture</button>
             </div>
         </div>
     </div>
