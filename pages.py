@@ -16,8 +16,8 @@ def faq():
     return render_template('faq.html')
 
 @bp.route('/face')
-def login():
-    return render_template('ml.html')
+def loginFt():
+    return render_template('public/ml.html')
 
 
 @bp.route('/')

@@ -25,8 +25,8 @@ function setupUIForMode(mode) {
         fetchTags();
     }
     else if(mode == "predict" && projectId && predictionApiKey) {
-        $('#tag-selector').hide();
-        $("#title").text("Image Classifier Prediction");
+      $('#tag-selector').show();
+      $("#welcome").text("welcome");
     }
     else {
         $("#controls").hide();
@@ -164,6 +164,8 @@ function predictFromImage(imageDataUrl) { //supports predict and play modes
                     const prediction = predictions[i];
                     if(i == 0) { //index 0 means top probability, so add *** to highlight this
                         toDisplay += "***";
+                        $('#tag-selector').show();
+                        $("#welcome").text("hi, " + str(prediction.tagName));
                     }
                     toDisplay += prediction.tagName + ":" + Number.parseFloat(prediction.probability).toPrecision(2);
                     if(i == 0) {
