@@ -24,8 +24,7 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/base.css') }}">
+
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/default.css') }}">
@@ -790,13 +789,18 @@ new TodoAppView();
       }
     }
 
-    document.querySelector( '.btn-7i' ).addEventListener( 'click', function() {
-      classie.add( document.querySelector( '#trash-effect' ), 'trash-effect-active' );
-    }, false );
+
   </script>
+      <h1>Voice Recognition</h1>
 
-</div><!-- /container -->
+      <button id="voiceButton">Say your chore</button>
 
-</body>
+      <h1 class="output"></h1>
+
+      <script src="{{ url_for('static', filename="js/voice.js")}}"></script>
+
+    </div><!-- /container -->
+
+  </body>
 
 </html>

@@ -24,7 +24,7 @@ class Person:
 
 
     def __init__(self, name):
-        readFromDataBase()
+        # readFromDataBase()
         self.name = name
         self.score = 600
         self.tasks = []
