@@ -102,11 +102,7 @@ function predictFromImage(imageDataUrl) { //supports predict and play modes
             }
 
         },
-        error: function(error) {
-            showLoading(false);
-
-            $.notify(error.statusText, "error");
-        }
+        
     });
 }
 
