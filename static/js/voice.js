@@ -54,8 +54,21 @@ function testSpeech() {
     console.log('Confidence: ' + event.results[0][0].confidence);
 
     var name = document.getElementById('voice').getAttribute("name");
+    console.log(speechResult);
+    if (speechResult.includes("austin")) {
+      console.log("austin")
+      window.location.href = "/" + speechResult.substring(7) + "/" + "Austin" + "/update";
+    } else if (speechResult.includes("james")) {
+      window.location.href = "/" + speechResult.substring(6) + "/" + "James" + "/update";
+    } else if (speechResult.includes("soukarya")) {
+      window.location.href = "/" + speechResult.substring(9) + "/" + "Soukarya" + "/update";
+    } else if (speechResult.includes("ryan")) {
+      window.location.href = "/" + speechResult.substring(5) + "/" + "Ryan" + "/update";
+    } else {
+      window.location.href = "/" + speechResult + "/" + name + "/update";
+    }
 
-    window.location.href = "/" + speechResult + "/" + name + "/update";
+
 
 
 

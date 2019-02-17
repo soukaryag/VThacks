@@ -1,3 +1,5 @@
 Task,Clean kitchen,Soukarya,02/16/2019,True
 Task,Clean booty,Soukarya,02/16/2019,False
 Balance,Soukarya,Austin,9,02/01/2019,3
+Task,Do something,Ryan,02/17/2019,False
+Task,Do my mother,Ryan,02/17/2019,False

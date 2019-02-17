@@ -18,6 +18,22 @@ def faq():
 
 @bp.route('/<var>/<name>/update')
 def update(var, name):
+    # if "austin" in var:
+    #     f = open("database/" + "austin.txt")
+    #     f.write("Task," + var + name, "02/17/2019,False\n")
+    # elif "james" in var:
+    #     f = open("database/" + "james.txt")
+    #     f.write("Task," + var + name, "02/17/2019,False\n")
+    # elif "ryan" in var:
+    #     f = open("database/" + "ryan.txt")
+    #     f.write("Task," + var + name + "02/17/2019,False\n")
+    # elif "soukarya" in var:
+    #     f = open("database/" + "soukarya.txt")
+    #     f.write("Task," + var + name + "02/17/2019,False\n")
+    # else
+
+
+
     var = var[0:1].upper() + var[1:]
 
     person = name
