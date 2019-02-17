@@ -53,6 +53,15 @@ function testSpeech() {
     diagnosticPara.textContent = speechResult;
 
     console.log('Confidence: ' + event.results[0][0].confidence);
+
+    // append to txt
+    /*
+    const fs = require('fs');
+    fs.appendFile("{{name}}.txt", speechResult, (err) => {
+      if (err) throw err;
+    });
+    */
+
   }
 
   recognition.onspeechend = function() {

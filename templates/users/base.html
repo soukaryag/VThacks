@@ -797,13 +797,22 @@ new TodoAppView();
 
 
   </script>
-      <h1>Voice Recognition</h1>
 
-      <button id="voiceButton">Say your chore</button>
+      <center style="line-height: 400px">
+        <h style="color:white; font-size:100px; font-family: Ubuntu;">Voice Recognition</h>
+        </center>
+        <center style="line-height: 400px">
+        <button id="voiceButton">Say your chore</button>
+          </center>
+        <center style="line-height: 400px">
+        <h class="output" style="color:white; font-size:80px; font-family: Ubuntu;"></h>
+          </center>
 
-      <h1 class="output"></h1>
+        <script src="{{ url_for('static', filename="js/voice.js")}}"></script>
 
-      <script src="{{ url_for('static', filename="js/voice.js")}}"></script>
+
+
+
 
     </div><!-- /container -->
 
