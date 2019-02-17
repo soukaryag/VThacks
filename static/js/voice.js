@@ -18,7 +18,6 @@ var diagnosticPara = document.querySelector('.output');
 var testBtn = document.getElementById('voiceButton');
 
 
-
 function randomPhrase() {
   var number = Math.floor(Math.random() * phrases.length);
   return number;
@@ -54,14 +53,11 @@ function testSpeech() {
 
     console.log('Confidence: ' + event.results[0][0].confidence);
 
-    // append to txt
+    var name = document.getElementById('voice').getAttribute("name");
 
-    window.location.href = "/" + speechResult + "/update";
+    window.location.href = "/" + speechResult + "/" + name + "/update";
 
-    const fs = require('fs');
-    fs.writeFile("james.txt", speechResult, (err) => {
-      if (err) throw err;
-    });
+
 
 
   }

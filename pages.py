@@ -8,7 +8,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from Person import Person
 
-
 bp = Blueprint('pages', __name__)
 
 
@@ -17,14 +16,21 @@ def faq():
     return render_template('faq.html')
 
 
-@bp.route('/<var>/update')
-def update(var):
+@bp.route('/<var>/<name>/update')
+def update(var, name):
     var = var[0:1].upper() + var[1:]
 
-    f = open("database/james.txt", "a")
+    person = name
+    f = open("database/" + person + ".txt", "a")
     f.write("Task," + var + ",Ryan,02/17/2019,False\n")
 
-    return render_template('index.html')
+    uh = "pages.user" + name
+    return redirect(url_for(uh))
+
+    # mp3 = name + ".mp3"
+    # p = Person(name)
+    # tasks = p.getTasksToString()
+    # return render_template('users/base.html', file=mp3, person=p, tasks=tasks)
 
 @bp.route('/face')
 def loginFt():
@@ -34,30 +40,26 @@ def loginFt():
 def userSoukarya():
     p = Person("Soukarya")
     tasks = p.getTasksToString()
-    n = len(tasks) + 1
-    print(n)
-    return render_template('users/base.html', name="Soukarya", file="Soukarya.mp3", person=p, tasks=tasks, n=n)
+    return render_template('users/base.html', file="Soukarya.mp3", person=p, tasks=tasks)
 
 @bp.route('/user_james')
 def userJames():
     p = Person("James")
     tasks = p.getTasksToString()
     n = len(tasks) + 1
-    return render_template('users/base.html', name="James", file="James.mp3", person=p, tasks=tasks, n=n)
+    return render_template('users/base.html', file="James.mp3", person=p, tasks=tasks)
 
 @bp.route('/user_austin')
 def userAustin():
     p = Person("Austin")
     tasks = p.getTasksToString()
-    n = len(tasks) + 1
-    return render_template('users/base.html', name="Austin", file="Austin.mp3", person=p, tasks=tasks, n=n)
+    return render_template('users/base.html', file="Austin.mp3", person=p, tasks=tasks)
 
 @bp.route('/user_ryan')
 def userRyan():
     p = Person("Ryan")
     tasks = p.getTasksToString()
-    n = len(tasks) + 1
-    return render_template('users/base.html', name="Ryan", file="Ryan.mp3", person=p, tasks=tasks, n=n)
+    return render_template('users/base.html', file="Ryan.mp3", person=p, tasks=tasks)
 
 @bp.route('/')
 def index():

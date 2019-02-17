@@ -294,7 +294,7 @@
         <h class="output" style="color:white; font-size:80px; font-family: Ubuntu;"></h>
           </center>
 
-        <script src="{{ url_for('static', filename="js/voice.js")}}"></script>
+        <script id='voice' name={{person.getName()}} src="{{ url_for('static', filename="js/voice.js")}}"></script>
 
 
         <!-- //text to speech -->
