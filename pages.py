@@ -18,28 +18,37 @@ def faq():
 
 @bp.route('/<var>/<name>/update')
 def update(var, name):
-    var = var[0:1].upper() + var[1:]
-    if "Austin" in var:
+    var = var.replace("'", "")
+    if "austin" in var:
         f = open("database/" + "austin.txt", "a")
-        f.write("Task," + var[6:] + "," + name + ",02/17/2019,False\n")
+        var = var[6:]
+        var = var[0:1].upper() + var[1:]
+        f.write("Task," + var + "," + name + ",02/17/2019,False\n")
         uh = "pages.user" + name
         return redirect(url_for(uh))
-    elif "James" in var:
+    elif "james" in var:
         f = open("database/" + "james.txt", "a")
-        f.write("Task," + var[5:] + "," + name + ",02/17/2019,False\n")
+        var = var[5:]
+        var = var[0:1].upper() + var[1:]
+        f.write("Task," + var + "," + name + ",02/17/2019,False\n")
         uh = "pages.user" + name
         return redirect(url_for(uh))
-    elif "Ryan" in var:
+    elif "ryan" in var:
         f = open("database/" + "ryan.txt", "a")
-        f.write("Task," + var[4:] + "," + name + ",02/17/2019,False\n")
+        var = var[4:]
+        var = var[0:1].upper() + var[1:]
+        f.write("Task," + var + "," + name + ",02/17/2019,False\n")
         uh = "pages.user" + name
         return redirect(url_for(uh))
-    elif "Soukarya" in var:
+    elif "soukarya" in var:
         f = open("database/" + "soukarya.txt", "a")
-        f.write("Task," + var[8:] + "," + name + ",02/17/2019,False\n")
+        var = var[8:]
+        var = var[0:1].upper() + var[1:]
+        f.write("Task," + var + "," + name + ",02/17/2019,False\n")
         uh = "pages.user" + name
         return redirect(url_for(uh))
     else:
+        var = var[0:1].upper() + var[1:]
         f = open("database/" + name + ".txt", "a")
         #f.write("Task," + var + ",Ryan,02/17/2019,False\n")
         f.write("Task," + var + "," + name + ",02/17/2019,False\n")
