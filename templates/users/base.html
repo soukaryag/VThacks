@@ -255,7 +255,6 @@
     <div id="todo-stats"></div>
 </div>
 
-<<<<<<< HEAD
 <!-- This template HTML will be used to render each todo item. -->
 <script type="text/x-template" id="todo-item-template">
     <div class="todo-view">
@@ -798,9 +797,6 @@ new TodoAppView();
 
 
   </script>
-=======
-      <h1>Voice Recognition</h1>
->>>>>>> 33fde5611303397c0e11181fe9f37e90b484a0ab
 
       <center style="line-height: 200px">
         <h style="color:white; font-size:100px; font-family: Ubuntu;">Voice Recognition</h>
@@ -815,8 +811,32 @@ new TodoAppView();
         <script src="{{ url_for('static', filename="js/voice.js")}}"></script>
 
 
+        <!-- //text to speech -->
 
+        <h1>Speech synthesiser</h1>
 
+    <p>Enter some text in the input below and press return  or the "play" button to hear it. change voices using the dropdown menu.</p>
+
+    <form>
+    <input type="text" class="txt">
+    <div>
+      <label for="rate">Rate</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
+      <div class="rate-value">1</div>
+      <div class="clearfix"></div>
+    </div>
+    <div>
+      <label for="pitch">Pitch</label><input type="range" min="0" max="2" value="1" step="0.1" id="pitch">
+      <div class="pitch-value">1</div>
+      <div class="clearfix"></div>
+    </div>
+    <select>
+
+    </select>
+    <div class="controls">
+      <button id="play" type="submit">Play</button>
+    </div>
+    </form>
+    <script src="{{ url_for('static', filename="js/textToVoice.js")}}"></script>
 
     </div><!-- /container -->
 
