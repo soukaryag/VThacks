@@ -55,12 +55,14 @@ function testSpeech() {
     console.log('Confidence: ' + event.results[0][0].confidence);
 
     // append to txt
-    /*
+
+    window.location.href = "/" + speechResult + "/update";
+
     const fs = require('fs');
-    fs.appendFile("{{name}}.txt", speechResult, (err) => {
+    fs.writeFile("james.txt", speechResult, (err) => {
       if (err) throw err;
     });
-    */
+
 
   }
 

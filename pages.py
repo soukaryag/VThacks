@@ -16,6 +16,16 @@ bp = Blueprint('pages', __name__)
 def faq():
     return render_template('faq.html')
 
+
+@bp.route('/<var>/update')
+def update(var):
+    var = var[0:1].upper() + var[1:]
+
+    f = open("database/james.txt", "a")
+    f.write("Task," + var + ",Ryan,02/17/2019,False\n")
+
+    return render_template('index.html')
+
 @bp.route('/face')
 def loginFt():
     return render_template('ml.html')
