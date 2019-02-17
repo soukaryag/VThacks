@@ -56,26 +56,30 @@ def loginFt():
 def userSoukarya():
     p = Person("Soukarya")
     tasks = p.getTasksToString()
-    return render_template('users/base.html', file="Soukarya.mp3", person=p, tasks=tasks)
+    balances = p.getBalancesToString()
+    return render_template('users/base.html', file="Soukarya.mp3", person=p, tasks=tasks, balances=balances)
 
 @bp.route('/user_james')
 def userJames():
     p = Person("James")
     tasks = p.getTasksToString()
+    balances = p.getBalancesToString()
     n = len(tasks) + 1
-    return render_template('users/base.html', file="James.mp3", person=p, tasks=tasks)
+    return render_template('users/base.html', file="James.mp3", person=p, tasks=tasks, balances=balances)
 
 @bp.route('/user_austin')
 def userAustin():
     p = Person("Austin")
     tasks = p.getTasksToString()
-    return render_template('users/base.html', file="Austin.mp3", person=p, tasks=tasks)
+    balances = p.getBalancesToString()
+    return render_template('users/base.html', file="Austin.mp3", person=p, tasks=tasks, balances=balances)
 
 @bp.route('/user_ryan')
 def userRyan():
     p = Person("Ryan")
     tasks = p.getTasksToString()
-    return render_template('users/base.html', file="Ryan.mp3", person=p, tasks=tasks)
+    balances = p.getBalancesToString()
+    return render_template('users/base.html', file="Ryan.mp3", person=p, tasks=tasks, balances=balances)
 
 @bp.route('/')
 def index():

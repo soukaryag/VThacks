@@ -155,6 +155,16 @@
     <h style="color:white; font-size:100px; font-family: Ubuntu;">{{person.getName()}}</h>
 
 </center> <!-- end s-header -->
+
+<script>
+  var view = "Balances";
+</script>
+<center>
+<div style="width: 300px">
+  <p id="view-text">Viewing: <script>document.write(view)</script>.</p>
+</div>
+</center>
+
 <center width="100%">
 <div style="width: 100px" class="task-display">
   <select id="task-select" size="10"> 
@@ -163,18 +173,36 @@
 </center>
     <script>
         var select = document.getElementById("task-select");
-        var temp = '{{tasks}}'.split('&#39;')
-        for(var i = 0; i < temp.length; i++) {
-            var b = 3;
-            if(temp[i].length > 2){
-                select.options[select.options.length] = new Option(temp[i]);
-            }
+        var temp;
+        if (view == "Tasks") {
+          var temp = '{{tasks}}'.split('&#39;');
         }
+        else if (view == "Balances") {
+          var temp = '{{balances}}'.split('&#39;');
+        }
+        for(var i = 0; i < temp.length; i++) {
+          var b = 3;
+          if(temp[i].length > 2){
+              select.options[select.options.length] = new Option(temp[i]);
+          }
+        }
+        
     </script>
 
 <style>
+#view-text {
+  font-size: 36px;
+  font-family: Ubuntu;
+  color: white;
+  background-color: orange;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 50px;
+}
+
 #task-select {
-    overflow: auto;
+    overflow: hidden;
     text-align: center;
     color: white;
     width: 400px;

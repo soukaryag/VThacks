@@ -48,7 +48,7 @@ class Person:
                 t = Task(splitLine[1], splitLine[2], splitLine[3], splitLine[4] == "True")
                 self.addTask(t)
             elif (dataType == "Balance"):
-                b = Balance(splitLine[1], splitLine[2], splitLine[3], splitLine[4])
+                b = Balance(splitLine[1], splitLine[2], splitLine[3], splitLine[4], splitLine[5])
                 self.addBalance(b)
         #make call to database
         #search for user with 'self.name' variable
@@ -69,6 +69,19 @@ class Person:
         for task in self.tasks:
             names.append(str(task.getName()))
         return names
+
+    def getBalancesToString(self):
+        balances = []
+        string = ""
+        for balance in self.balances:
+            if balance.getCreditor() == self.getName():
+                print("hey")
+                string += balance.getDebtor() + " owes you " + str(int(balance.getAmount()) - int(balance.getPaid())) + "."
+            else:
+                print("hoe")
+                string += "You owe " + balance.getCreditor() + " " + str(int(balance.getAmount()) - int(balance.getPaid())) + "."
+            balances.append(string)
+        return balances
 
     def addBalance(self, balance):
         self.balances.append(balance)
