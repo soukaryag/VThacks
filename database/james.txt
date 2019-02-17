@@ -3,9 +3,5 @@ Task,Clean booty,Soukarya,02/16/2019,False
 Balance,Soukarya,Austin,9,02/01/2019,3
 Task,Yakima wash the dishes,Ryan,02/17/2019,False
 Task,Vacuum the floor,Ryan,02/17/2019,False
-Task,Pick up the trash,Ryan,02/17/2019,False
-Task,Do my homework,Ryan,02/17/2019,False
-Task,Do my homework,Ryan,02/17/2019,False
-Task,Do my homework,Ryan,02/17/2019,False
-Task,Need a hackathon project,Ryan,02/17/2019,False
-Task,Do my homework,Ryan,02/17/2019,False
+Task,Then can you please suck,Ryan,02/17/2019,False
+Task,Austin hows it going,Ryan,02/17/2019,False

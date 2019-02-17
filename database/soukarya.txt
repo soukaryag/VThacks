@@ -7,3 +7,5 @@ Task,Wash the dishes,Ryan,02/17/2019,False
 Task,Wash the windows,Ryan,02/17/2019,False
 Task,Penis,Ryan,02/17/2019,False
 Task,Please work,Ryan,02/17/2019,False
+Task,Ryan clean the floor,Ryan,02/17/2019,False
+Task,Clean the room,Ryan,02/17/2019,False
