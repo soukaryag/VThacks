@@ -58,10 +58,6 @@ function testSpeech() {
 
     window.location.href = "/" + speechResult + "/update";
 
-    const fs = require('fs');
-    fs.writeFile("james.txt", speechResult, (err) => {
-      if (err) throw err;
-    });
 
 
   }
