@@ -81,7 +81,6 @@
     }
 
     .flip-card-back {
-      background-color: #2980b9;
       color: white;
       transform: rotateY(180deg);
       z-index: 1;
@@ -113,7 +112,7 @@
       </div>
       <div class="flip-card-back">
         <div style="width: 100px" class="task-display">
-          <select id="task-select" size="10">
+          <select id="budget-select" size="10">
           </select>
         </div>
       </div>
@@ -121,19 +120,29 @@
   </div>
 
 </center>
+
     <script>
         var select = document.getElementById("task-select");
-        var temp = '{{tasks}}'.split('&#39;')
+        var select2 = document.getElementById("budget-select");
+        var temp = '{{tasks}}'.split('&#39;');
+        var temp2 = '{{balances}}'.split('&#39;');
         for(var i = 0; i < temp.length; i++) {
-            var b = 3;
-            if(temp[i].length > 2){
-                select.options[select.options.length] = new Option(temp[i]);
-            }
+          if(temp[i].length > 2){
+              select.options[select.options.length] = new Option(temp[i]);
+          }
         }
+
+        for(var i = 0; i < temp2.length; i++) {
+          if(temp2[i].length > 2){
+              select2.options[select2.options.length] = new Option(temp2[i]);
+          }
+        }
+
     </script>
 
 <style>
-#task-select {
+#task-select,
+#budget-select {
     overflow: auto;
     text-align: center;
     color: white;
