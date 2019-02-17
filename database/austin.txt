@@ -1,0 +1,9 @@
+Task,Clean kitchen,Soukarya,02/16/2019,True
+Task,Clean booty,Soukarya,02/16/2019,False
+Task,big hoes,Soukarya,02/16/2019,True
+Task,even bigger hoes,Soukarya,02/16/2019,False
+Balance,Soukarya,Austin,9,02/01/2019,3
+Task,Pictures,Ryan,02/17/2019,False
+Task,Take out the trash,Ryan,02/17/2019,False
+Task,James,Ryan,02/17/2019,False
+Task,James clean the floor,Ryan,02/17/2019,False
