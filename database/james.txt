@@ -1,5 +1,3 @@
-Clean kitchen,Soukarya,02/16/2019
-Clean booty,Soukarya,02/16/2019
----
-James, Austin, 9, 02/01/2019
----
+Task,Clean kitchen,Soukarya,02/16/2019,True
+Task,Clean booty,Soukarya,02/16/2019,False
+Balance,Soukarya,Austin,9,02/01/2019,3

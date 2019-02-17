@@ -1,4 +1,3 @@
-
 class Task:
 
     #Fields---------------------------------------------------------------
@@ -6,7 +5,7 @@ class Task:
     #date = ""
     #creator = None
     #status = False
-    
+
 
 
     def __init__(self, name, date, creator, status):
@@ -26,5 +25,3 @@ class Task:
 
     def getStatus(self):
         return self.status
-
-    
