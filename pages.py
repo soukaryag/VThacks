@@ -22,20 +22,26 @@ def loginFt():
 
 @bp.route('/user_soukarya')
 def userSoukarya():
-	a = Person("Soukarya")
-	return render_template('users/base.html', name="Soukarya", person=Person("Soukarya"))
+	p = Person("Soukarya")
+	return render_template('users/base.html', name="Soukarya", person=p, tasks=p.getTasksToString())
 
 @bp.route('/user_james')
 def userJames():
-    return render_template('users/base.html', name="James", person=Person("James"))
+	p = Person("James")
+	return render_template('users/base.html', name="James", person=p, tasks=p.getTasksToString())
 
 @bp.route('/user_austin')
 def userAustin():
-    return render_template('users/base.html', name="Austin", person=Person("Austin"))
+	p = Person("Austin")
+	tasks = p.getTasksToString()
+	n = len(tasks) +1
+	print(tasks)
+	return render_template('users/base.html', name="Austin", person=p, tasks=tasks, n=n)
 
 @bp.route('/user_ryan')
 def userRyan():
-    return render_template('users/base.html', name="Ryan", person=Person("Ryan"))
+	p = Person("Ryan")
+	return render_template('users/base.html', name="Ryan", person=p, tasks=p.getTasksToString())
 
 @bp.route('/')
 def index():
