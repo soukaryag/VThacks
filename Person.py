@@ -31,11 +31,12 @@ class Person:
         self.tasks = []
         self.balances = []
         self.name = name
-        self.score = 600
 
         self.doNotDisturb = False
         self.outOfTown = False
         self.readFromDatabase()
+
+        self.score=600-(23*len(self.tasks))
 
 
     def getBalancesToString(self):
@@ -49,6 +50,7 @@ class Person:
                 print("hoe")
                 string += "You owe " + balance.getCreditor() + " $" + str(int(balance.getAmount()) - int(balance.getPaid())) + "."
             balances.append(string)
+            string = ""
         return balances
 
     #Read from database
@@ -81,6 +83,7 @@ class Person:
         names = []
         for task in self.tasks:
             names.append(str(task.getName()))
+
         return names
 
     def addBalance(self, balance):
@@ -100,6 +103,9 @@ class Person:
 
     def getOutOfTown(self):
         return self.outOfTown
+
+    def getScore(self):
+        return self.score
 
 
 #print(type(a.tasks[0])

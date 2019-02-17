@@ -1,0 +1,5 @@
+Task,Do the dishes,Ryan,02/17/2019,False
+Task,Take out the trash,Ryan,02/17/2019,False
+Task,Clean the desks,Ryan,02/17/2019,False
+Balance,Ryan,Austin,19,02/17/2019,5
+Balance,Soukarya,Ryan,24,02/17/2019,4
