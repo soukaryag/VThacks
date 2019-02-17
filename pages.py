@@ -18,30 +18,33 @@ def faq():
 
 @bp.route('/<var>/<name>/update')
 def update(var, name):
-    # if "austin" in var:
-    #     f = open("database/" + "austin.txt")
-    #     f.write("Task," + var + name, "02/17/2019,False\n")
-    # elif "james" in var:
-    #     f = open("database/" + "james.txt")
-    #     f.write("Task," + var + name, "02/17/2019,False\n")
-    # elif "ryan" in var:
-    #     f = open("database/" + "ryan.txt")
-    #     f.write("Task," + var + name + "02/17/2019,False\n")
-    # elif "soukarya" in var:
-    #     f = open("database/" + "soukarya.txt")
-    #     f.write("Task," + var + name + "02/17/2019,False\n")
-    # else
-
-
-
     var = var[0:1].upper() + var[1:]
-
-    person = name
-    f = open("database/" + person + ".txt", "a")
-    f.write("Task," + var + ",Ryan,02/17/2019,False\n")
-
-    uh = "pages.user" + name
-    return redirect(url_for(uh))
+    if "Austin" in var:
+        f = open("database/" + "austin.txt", "a")
+        f.write("Task," + var[6:] + "," + name + ",02/17/2019,False\n")
+        uh = "pages.user" + name
+        return redirect(url_for(uh))
+    elif "James" in var:
+        f = open("database/" + "james.txt", "a")
+        f.write("Task," + var[5:] + "," + name + ",02/17/2019,False\n")
+        uh = "pages.user" + name
+        return redirect(url_for(uh))
+    elif "Ryan" in var:
+        f = open("database/" + "ryan.txt", "a")
+        f.write("Task," + var[4:] + "," + name + ",02/17/2019,False\n")
+        uh = "pages.user" + name
+        return redirect(url_for(uh))
+    elif "Soukarya" in var:
+        f = open("database/" + "soukarya.txt", "a")
+        f.write("Task," + var[8:] + "," + name + ",02/17/2019,False\n")
+        uh = "pages.user" + name
+        return redirect(url_for(uh))
+    else:
+        f = open("database/" + name + ".txt", "a")
+        #f.write("Task," + var + ",Ryan,02/17/2019,False\n")
+        f.write("Task," + var + "," + name + ",02/17/2019,False\n")
+        uh = "pages.user" + name
+        return redirect(url_for(uh))
 
     # mp3 = name + ".mp3"
     # p = Person(name)
