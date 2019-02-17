@@ -1,0 +1,5 @@
+Task,Fold the laundry,Ryan,02/17/2019,False
+Task,Scrub kitchen floor,Ryan,02/17/2019,False
+Balance,Soukarya,Austin,13,02/17/2019,5
+Balance,Ryan,Soukarya,23,02/17/2019,9
+Balance,James,Soukarya,53,02/17/2019,3

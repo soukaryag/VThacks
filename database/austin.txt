@@ -1,0 +1,5 @@
+Task,Clean the windows,Ryan,02/17/2019,False
+Task,Scrub the toilet,Ryan,02/17/2019,False
+Task,Do dishes,Ryan,02/17/2019,False
+Balance,Austin,Soukarya,12,02/17/2019,8
+Task,Scrub the kitchen sink,Austin,02/17/2019,False

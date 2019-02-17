@@ -17,6 +17,9 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <!-- mobile specific metas
@@ -26,11 +29,14 @@
     <!-- CSS
     ================================================== -->
 
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/default.css') }}">
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/component.css') }}">
+
 
 
     <!-- script
@@ -44,8 +50,8 @@
     <link rel="icon" href="{{ url_for('static', filename='images/tabIcon.png') }}">
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
-    <style>
 
+    <style>
     .flip-card {
       background-color: transparent;
       width: 300px;
@@ -86,6 +92,8 @@
       z-index: 1;
     }
     </style>
+
+
 </head>
 
 <body id="top" style="background: #0abde3">
@@ -93,14 +101,21 @@
 <!-- header
 ================================================== -->
 
-<center style="line-height: 200px">
+<center>
 
     <h style="color:white; font-size:35px; font-family: Ubuntu;">Welcome, <a style="font-size:60px; color: Orange">{{person.getName()}}</a></h>
 
 </center> <!-- end s-header -->
 
+<center style="padding-bottom: 60px">
+
+    <h style="color:white; font-size:25px; font-family: Ubuntu;">Score: <a style="color: Orange">{{person.getScore()}}</a> points</h>
+
+</center> <!-- end s-header -->
+
 
 <center width="100%">
+
 
   <div class="flip-card">
     <div class="flip-card-inner">
@@ -172,7 +187,9 @@
             <!-- Top Navigation -->
             <section>
 
+                <button id="voiceButton2" class="btn btn-1 btn-1c">Delete</button>
                 <button id="voiceButton" class="btn btn-1 btn-1c">Voice</button>
+                <button id="voiceButton1" class="btn btn-1 btn-1c">Unav</button>
 
             </section>
 
