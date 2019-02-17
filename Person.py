@@ -1,4 +1,6 @@
-
+from Task import Task
+from Balance import Balance
+import os
 class Person:
 
     #Fields---------------------------------------------------------------
@@ -23,18 +25,31 @@ class Person:
     #tasks = []
 
 
+
+
     def __init__(self, name):
-        # readFromDataBase()
-        self.name = name
-        self.score = 600
         self.tasks = []
         self.balances = []
+        self.name = name
+        self.score = 600
+
         self.doNotDisturb = False
         self.outOfTown = False
+        self.readFromDatabase()
+
 
     #Read from database
     def readFromDatabase(self):
-        f = open(name + ".txt")
+        f = open("database/" + (self.name).lower() + ".txt")
+        for line in f.readlines():
+            splitLine = line.split(",")
+            dataType = splitLine[0]
+            if (dataType == "Task"):
+                t = Task(splitLine[1], splitLine[2], splitLine[3], splitLine[4] == "True")
+                self.addTask(t)
+            elif (dataType == "Balance"):
+                b = Balance(splitLine[1], splitLine[2], splitLine[3], splitLine[4])
+                self.addBalance(b)
         #make call to database
         #search for user with 'self.name' variable
         #fill in other fields
@@ -48,6 +63,12 @@ class Person:
 
     def getTasks(self):
         return self.tasks
+
+    def getTasksToString(self):
+        names = []
+        for task in self.tasks:
+            names.append(str(task.getName()))
+        return names
 
     def addBalance(self, balance):
         self.balances.append(balance)
@@ -66,3 +87,6 @@ class Person:
 
     def getOutOfTown(self):
         return self.outOfTown
+
+
+#print(type(a.tasks[0])

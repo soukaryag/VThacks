@@ -22,20 +22,32 @@ def loginFt():
 
 @bp.route('/user_soukarya')
 def userSoukarya():
-	a = Person("Soukarya")
-	return render_template('users/base.html', name="Soukarya", person=Person("Soukarya"), file="Soukarya.mp3")
+    p = Person("Soukarya")
+    tasks = p.getTasksToString()
+    n = len(tasks) + 1
+    print(n)
+    return render_template('users/base.html', name="Soukarya", file="Soukarya.mp3", person=p, tasks=tasks, n=n)
 
 @bp.route('/user_james')
 def userJames():
-    return render_template('users/base.html', name="James", person=Person("James"), file="James.mp3")
+    p = Person("James")
+    tasks = p.getTasksToString()
+    n = len(tasks) + 1
+    return render_template('users/base.html', name="James", file="James.mp3", person=p, tasks=tasks, n=n)
 
 @bp.route('/user_austin')
 def userAustin():
-    return render_template('users/base.html', name="Austin", person=Person("Austin"), file="Austin.mp3")
+    p = Person("Austin")
+    tasks = p.getTasksToString()
+    n = len(tasks) + 1
+    return render_template('users/base.html', name="Austin", file="Austin.mp3", person=p, tasks=tasks, n=n)
 
 @bp.route('/user_ryan')
 def userRyan():
-    return render_template('users/base.html', name="Ryan", person=Person("Ryan"), file="Ryan.mp3")
+    p = Person("Ryan")
+    tasks = p.getTasksToString()
+    n = len(tasks) + 1
+    return render_template('users/base.html', name="Ryan", file="Ryan.mp3", person=p, tasks=tasks, n=n)
 
 @bp.route('/')
 def index():
