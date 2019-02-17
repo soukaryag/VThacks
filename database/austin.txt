@@ -4,3 +4,11 @@ Task,big hoes,Soukarya,02/16/2019,True
 Task,even bigger hoes,Soukarya,02/16/2019,False
 Balance,Soukarya,Austin,9,02/01/2019,3
 Task,Pictures,Ryan,02/17/2019,False
+Task,Austin do my homework,Ryan,02/17/2019,False
+Task,Do the dishes,Ryan,02/17/2019,False
+Task,Do the dishes,Ryan,02/17/2019,False
+Task,Do the dishes,Ryan,02/17/2019,False
+Task,Suck brian stick,Ryan,02/17/2019,False
+Task,Riot do something,Ryan,02/17/2019,False
+Task,Austin do the dishes,Ryan,02/17/2019,False
+Task,Do my homework,Ryan,02/17/2019,False
