@@ -1,9 +1,0 @@
-Task,Lets party,Austin,02/17/2019,False
-Task,Let us party,Austin,02/17/2019,False
-Task,Whats a sparty,Austin,02/17/2019,False
-Task,James make your bed,Austin,02/17/2019,False
-Task, clean the windows,Ryan,02/17/2019,False
-Task,Clean the windows,Austin,02/17/2019,False
-Task, wash the carpet,Ryan,02/17/2019,False
-Task,,Soukarya,02/17/2019,False
-Task, clean the toilet,Soukarya,02/17/2019,False

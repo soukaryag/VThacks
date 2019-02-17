@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-Task, do the dishes,Ryan,02/17/2019,False
-Task, do the dishes,Ryan,02/17/2019,False
-Task, make your bed,Austin,02/17/2019,False
-=======
-Task, full the sheets,Soukarya,02/17/2019,False
->>>>>>> ea258d9cbf1791e2f4f31fec3ed713aaae7b5a8c
