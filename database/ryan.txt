@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 Task,Do something,test,02/17/2019,False
 Task,You saw the clothes,test,02/17/2019,False
 Task,Let's party,Ryan,02/17/2019,False
@@ -13,3 +14,8 @@ Task,James do the dishes,Ryan,02/17/2019,False
 Task, clean the carpet,Ryan,02/17/2019,False
 Task, Wwash your clothes,Austin,02/17/2019,False
 Task,S make dinner,Austin,02/17/2019,False
+=======
+Task,,Soukarya,02/17/2019,False
+Task, write the report,Soukarya,02/17/2019,False
+Task, do the dishes,Soukarya,02/17/2019,False
+>>>>>>> ea258d9cbf1791e2f4f31fec3ed713aaae7b5a8c

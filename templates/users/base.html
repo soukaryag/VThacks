@@ -44,141 +44,110 @@
     <link rel="icon" href="{{ url_for('static', filename='images/tabIcon.png') }}">
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
-
     <style>
-#todo-app {
-    margin: 1em;
-    text-align: center;
-}
 
-#todo-list,
-#todo-stats {
-    margin: 1em auto;
-    text-align: left;
-    width: 450px;
-}
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 300px;
+      perspective: 1000px;
+    }
 
-#todo-list {
-    list-style: none;
-    padding: 0;
-}
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
 
-#todo-stats,
-.todo-clear { color: #777; }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
 
-.todo-clear { float: right; }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
 
-.todo-done .todo-content {
-    color: #666;
-    text-decoration: line-through;
-}
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+      z-index: 2;
+    }
 
-.todo-edit,
-.editing .todo-view { display: none; }
-
-.editing .todo-edit { display: block; }
-
-.todo-input {
-    display: block;
-    font-family: Helvetica, sans-serif;
-    font-size: 20px;
-    line-height: normal;
-    margin: 5px auto 0;
-    padding: 6px;
-    width: 420px;
-}
-
-.todo-item {
-    border-bottom: 1px dotted #cfcfcf;
-    font-size: 20px;
-    padding: 6px;
-    position: relative;
-}
-
-.todo-label {
-    color: #444;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.todo-remaining {
-    color: #333;
-    font-weight: bold;
-}
-
-.todo-remove {
-    position: absolute;
-    right: 0;
-    top: 12px;
-}
-
-.todo-remove-icon {
-    /*
-    Delete icon courtesy of The Noun Project:
-    http://thenounproject.com/noun/delete/
-    */
-    background: url(../assets/app/remove.png) no-repeat;
-    display: block;
-    height: 16px;
-    opacity: 0.6;
-    visibility: hidden;
-    width: 23px;
-}
-
-.todo-remove:hover .todo-remove-icon { opacity: 1.0; }
-
-.todo-hover .todo-remove-icon,
-.todo-remove:focus .todo-remove-icon { visibility: visible; }
-
-.editing .todo-remove-icon { visibility: hidden; }
-</style>
+    .flip-card-back {
+      color: white;
+      transform: rotateY(180deg);
+      z-index: 1;
+    }
+    </style>
 </head>
 
 <body id="top" style="background: #0abde3">
 
-
-    <audio autoplay>
-        <source src="{{ url_for('static', filename='/'.join(['audio', file])) }}" type="audio/mp3">
-     </audio>
-
 <!-- header
 ================================================== -->
-<center>
-
-    <h style="color:white; font-size:40px; font-family: Ubuntu;">Welcome,</h>
-
-</center> <!-- end s-header -->
 
 <center style="line-height: 200px">
 
-    <h style="color:white; font-size:100px; font-family: Ubuntu;">{{person.getName()}}</h>
+    <h style="color:white; font-size:35px; font-family: Ubuntu;">Welcome, <a style="font-size:60px; color: Orange">{{person.getName()}}</a></h>
 
 </center> <!-- end s-header -->
+
+
 <center width="100%">
-<div style="width: 100px" class="task-display">
-  <select id="task-select" size="10"> 
-  </select>
-</div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div style="width: 100px" class="task-display">
+          <select id="task-select" size="10">
+          </select>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div style="width: 100px" class="task-display">
+          <select id="budget-select" size="10">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </center>
+
     <script>
         var select = document.getElementById("task-select");
-        var temp = '{{tasks}}'.split('&#39;')
+        var select2 = document.getElementById("budget-select");
+        var temp = '{{tasks}}'.split('&#39;');
+        var temp2 = '{{balances}}'.split('&#39;');
         for(var i = 0; i < temp.length; i++) {
-            var b = 3;
-            if(temp[i].length > 2){
-                select.options[select.options.length] = new Option(temp[i]);
-            }
+          if(temp[i].length > 2){
+              select.options[select.options.length] = new Option(temp[i]);
+          }
         }
+
+        for(var i = 0; i < temp2.length; i++) {
+          if(temp2[i].length > 2){
+              select2.options[select2.options.length] = new Option(temp2[i]);
+          }
+        }
+
     </script>
 
 <style>
-#task-select {
+#task-select,
+#budget-select {
     overflow: auto;
     text-align: center;
     color: white;
-    width: 400px;
-    font: 200 20px/1.5 Ubuntu, Verdana, sans-serif;
+    width: 600px;
+    font: 200 30px/1.5 Ubuntu, Verdana, sans-serif;
     border-bottom: 1px solid #FFFFFF;
     border-top: 1px solid #FFFFFF;
     border-left: 2px solid #FFFFFF;
@@ -193,144 +162,57 @@
    right: 150px;
 
 }
-#todo-app {
-    margin: 1em;
-    text-align: center;
-}
 
-#todo-list,
-#todo-stats {
-    margin: 1em auto;
-    text-align: left;
-    width: 450px;
-}
-
-#todo-list {
-    list-style: none;
-    padding: 0;
-}
-
-#todo-stats,
-.todo-clear { color: #777; }
-
-.todo-clear { float: right; }
-
-.todo-done .todo-content {
-    color: #666;
-    text-decoration: line-through;
-}
-
-.todo-edit,
-.editing .todo-view { display: none; }
-
-.editing .todo-edit { display: block; }
-
-.todo-input {
-    display: block;
-    font-family: Helvetica, sans-serif;
-    font-size: 20px;
-    line-height: normal;
-    margin: 5px auto 0;
-    padding: 6px;
-    width: 420px;
-}
-
-.todo-item {
-    border-bottom: 1px dotted #cfcfcf;
-    font-size: 20px;
-    padding: 6px;
-    position: relative;
-}
-
-.todo-label {
-    color: #444;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.todo-remaining {
-    color: #333;
-    font-weight: bold;
-}
-
-.todo-remove {
-    position: absolute;
-    right: 0;
-    top: 12px;
-}
-
-.todo-remove-icon {
-    /*
-    Delete icon courtesy of The Noun Project:
-    http://thenounproject.com/noun/delete/
-    */
-    background: url(../assets/app/remove.png) no-repeat;
-    display: block;
-    height: 16px;
-    opacity: 0.6;
-    visibility: hidden;
-    width: 23px;
-}
-
-.todo-remove:hover .todo-remove-icon { opacity: 1.0; }
-
-.todo-hover .todo-remove-icon,
-.todo-remove:focus .todo-remove-icon { visibility: visible; }
-
-.editing .todo-remove-icon { visibility: hidden; }
 </style>
 
-
-
-
-      <center style="line-height: 200px">
+      <center>
         </center>
-        <center style="line-height: 200px">
-        <div class="container">
-          <!-- Top Navigation -->
-          <section>
+        <center>
+          <div class="container">
+            <!-- Top Navigation -->
+            <section>
 
-              <button id="voiceButton" class="btn btn-1 btn-1c">Voice</button>
+                <button id="voiceButton" class="btn btn-1 btn-1c">Voice</button>
 
-          </section>
+            </section>
 
-          <script src="{{ url_for('static', filename='js/classie.js') }}"></script>
-          <script>
-            var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
-              buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
-              totalButtons7Click = buttons7Click.length,
-              totalButtons9Click = buttons9Click.length;
+            <script src="{{ url_for('static', filename='js/classie.js') }}"></script>
+            <script>
+              var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
+                buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
+                totalButtons7Click = buttons7Click.length,
+                totalButtons9Click = buttons9Click.length;
 
-            buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
-            buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+              buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+              buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
 
-            function activate() {
-              var self = this, activatedClass = 'btn-activated';
+              function activate() {
+                var self = this, activatedClass = 'btn-activated';
 
-              if( classie.has( this, 'btn-7h' ) ) {
-                // if it is the first of the two btn-7h then activatedClass = 'btn-error';
-                // if it is the second then activatedClass = 'btn-success'
-                activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
+                if( classie.has( this, 'btn-7h' ) ) {
+                  // if it is the first of the two btn-7h then activatedClass = 'btn-error';
+                  // if it is the second then activatedClass = 'btn-success'
+                  activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
+                }
+                else if( classie.has( this, 'btn-8g' ) ) {
+                  // if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
+                  // if it is the second then activatedClass = 'btn-error3d'
+                  activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
+                }
+
+                if( !classie.has( this, activatedClass ) ) {
+                  classie.add( this, activatedClass );
+                  setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
+                }
               }
-              else if( classie.has( this, 'btn-8g' ) ) {
-                // if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
-                // if it is the second then activatedClass = 'btn-error3d'
-                activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
-              }
 
-              if( !classie.has( this, activatedClass ) ) {
-                classie.add( this, activatedClass );
-                setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
-              }
-            }
+              document.querySelector( '.btn-7i' ).addEventListener( 'click', function() {
+                classie.add( document.querySelector( '#trash-effect' ), 'trash-effect-active' );
+              }, false );
+            </script>
 
-            document.querySelector( '.btn-7i' ).addEventListener( 'click', function() {
-              classie.add( document.querySelector( '#trash-effect' ), 'trash-effect-active' );
-            }, false );
-          </script>
+          </div><!-- /container -->
 
-        </div><!-- /container -->
         </center>
         <center style="line-height: 200px">
         <h class="output" style="color:white; font-size:80px; font-family: Ubuntu;"></h>
@@ -370,5 +252,9 @@
     </div><!-- /container -->
 
   </body>
+
+  <audio autoplay>
+      <source src="{{ url_for('static', filename='/'.join(['audio', file])) }}" type="audio/mp3">
+   </audio>
 
 </html>
